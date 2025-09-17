@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BOT استیکر گلیچ</title>
+    <title>فیلتر تصویر نقطه‌ای | خروجی WebP</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -126,7 +126,7 @@
         .preset-buttons {
             display: flex;
             justify-content: center;
-            gap: 8px;
+            gap: 10px;
             flex-wrap: nowrap;
             margin-bottom: 15px;
         }
@@ -140,8 +140,8 @@
         }
         
         .btn {
-            padding: 6px 12px;
-            font-size: 0.8rem;
+            padding: 8px 16px;
+            font-size: 0.9rem;
             font-weight: 600;
             border: none;
             border-radius: 12px;
@@ -156,7 +156,7 @@
         .btn-preset {
             background: rgba(255, 255, 255, 0.15);
             color: white;
-            width: 70px;
+            width: 85px;
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
@@ -285,9 +285,9 @@
             }
             
             .btn-preset {
-                width: 65px;
-                font-size: 0.75rem;
-                padding: 5px 8px;
+                width: 80px;
+                font-size: 0.85rem;
+                padding: 7px 12px;
             }
         }
     </style>
@@ -460,8 +460,8 @@
                     ctx.drawImage(originalImage, 0, 0, width, height);
                     imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
                     
-                    // اعمال حالت پیش‌فرض ۱ به صورت خودکار
-                    applyPreset1();
+                    // اعمال حالت پیش‌فرض ۲ (گلیچ A) به صورت خودکار
+                    applyPreset2();
                 };
                 originalImage.src = event.target.result;
             };
@@ -585,7 +585,7 @@
                 const preset = presets[currentPreset];
                 
                 // نام فایل با توجه به حالت انتخاب شده
-                link.download = `نقاشی_نقطه‌ای_حالت_${currentPreset === 'preset1' ? '1' : '2'}.webp`;
+                link.download = `نقاشی_نقطه‌ای_حالت_${currentPreset === 'preset1' ? 'B' : 'A'}.webp`;
                 link.href = URL.createObjectURL(blob);
                 
                 // دانلود بدون نمایش پیام
@@ -601,4 +601,4 @@
         });
     </script>
 </body>
-  </html>
+</html>
